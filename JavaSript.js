@@ -1,4 +1,26 @@
-function setear() {}
+const fetchServicioCrear = async () => {
+  try {
+    const request = await fetch(
+      "https://bomberosalerta.com.ar/cursoweb/servicioAgendaCrear"
+    );
+    const data = await request.json();
+    console.log(data);
+    let body = "";
+    for (let i = 0; i < data.length; i++) {
+      body += `<tr><td><button onclick='setear(this)'>Editar</button></td>
+                  <td>${data[i].CONTACTO} </td>
+                  <td>${data[i].TELEFONO} </td>
+                  <td>${data[i].FECHA_MODIFICACION} </td>
+                  <td><button onclick='borrarFila(this)'>Borrar</button></td>
+                  </tr>
+                  `;
+    } //sin terminar
+    document.getElementById("tbody").innerHTML = body;
+  } catch (err) {
+    console.log(err);
+  }
+  fetchAgendaListar();
+};
 
 const fetchAgendaListar = async () => {
   try {
