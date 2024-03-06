@@ -1,3 +1,5 @@
+function setear() {}
+
 const fetchAgendaListar = async () => {
   try {
     const response = await fetch(
@@ -23,23 +25,6 @@ const fetchAgendaListar = async () => {
 
 fetchAgendaListar();
 
-function setear() {
-  const nombre = document.getElementById("nom").value;
-  const numero = document.getElementById("num").value;
-
-  let fechaActual = new Date();
-
-  var filaHTML = "<tr>";
-  filaHTML += "<td><button onclick='setear(this)'>Editar</button></td>";
-  filaHTML += "<td>" + nombre + "</td>";
-  filaHTML += "<td>" + numero + "</td>";
-  filaHTML += "<td>" + fechaActual + "</td>";
-  filaHTML += "<td><button onclick='borrarFila(this)'>Borrar</button></td>";
-  filaHTML += "</tr>";
-
-  var tbody = document.getElementById("tbody");
-  tbody.innerHTML += filaHTML;
-}
 function borrarFila(boton) {
   Swal.fire({
     title: "Are you sure?",
