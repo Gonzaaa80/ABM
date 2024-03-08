@@ -93,7 +93,6 @@ function fetchServicioCrear() {
   }
 }
 
-
 function borrar(idContacto) {
   var fData = new FormData();
   fData.append("idContacto", idContacto);
@@ -109,7 +108,7 @@ function borrar(idContacto) {
     })
 
     .then((resp) => {
-      console.log("El ID es: " + ID_CONTACTO);
+      console.log("El ID es: " + idContacto);
 
       //sweetalert con resp
       getListado();
