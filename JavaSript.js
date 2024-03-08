@@ -57,31 +57,40 @@ function guardar() {
 }
 
 function fetchServicioCrear() {
-  var contacto = document.getElementById("nom").value;
-  var num = document.getElementById("num").value;
+  var contacto = document.getElementById("nom");
+  var num = document.getElementById("num");
   var fData = new FormData();
 
-  fData.append("contacto", contacto);
-  fData.append("telefono", num);
+  if (!num.checkValidity() || !contacto.checkValidity()) {
+    document.getElementById("demonom").innerHTML = contacto.validationMessage;
+    document.getElementById("demonum").innerHTML = num.validationMessage;
+  } else {
+    document.getElementById("demonom").innerHTML = "Input OK";
 
-  fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaCrear", {
-    method: "POST",
-    body: fData,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("No se pudo obtener el contenido del archivo remoto.");
-      }
-      return response.text();
+    fData.append("telefono", num.value);
+    fData.append("contacto", contacto.value);
+
+    fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaCrear", {
+      method: "POST",
+      body: fData,
     })
-    .then((resp) => {
-      console.log(resp);
-      //sweetalert con resp
-      getListado();
-    })
-    .catch((error) => {
-      console.error("Error al obtener el contenido:", error);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "No se pudo obtener el contenido del archivo remoto."
+          );
+        }
+        return response.text();
+      })
+      .then((resp) => {
+        console.log(resp);
+        //sweetalert con resp
+        getListado();
+      })
+      .catch((error) => {
+        console.error("Error al obtener el contenido:", error);
+      });
+  }
 }
 
 function borrar(ID_CONTACTO) {

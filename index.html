@@ -69,14 +69,19 @@
                         type="text"
                         id="nom"
                         placeholder="Introduce su nombre"
+                        required
                       />
                       <input
-                        type="tel"
+                        type="number"
                         id="num"
+                        class="numc"
                         placeholder="Introduce su Numero"
-                        maxlength="10"
+                        min="1100000000"
+                        max="1199999999"
+                        required
                       />
-                      <p id="demo"></p>
+                      <p id="demonom"></p>
+                      <p id="demonum"></p>
                     </form>
                   </div>
                   <div class="modal-footer">
