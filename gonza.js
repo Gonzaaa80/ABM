@@ -1,3 +1,3 @@
 function resetearFormulario(idForm) {
-    document.getElementById(idForm).reset();
+  document.getElementById(idForm).reset();
 }

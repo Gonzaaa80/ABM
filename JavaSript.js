@@ -15,7 +15,8 @@ function getListado() {
       let filas = "";
       for (let i = 0; i < resp.length; i++) {
         filas += `<tr>
-        <td><button onclick="modificar(${i})" class="btn btn-primary">Editar <i class="fa-solid fa-pen-to-square"></i></button></td>
+        <td><button onclick="modificar(${i})" data-bs-toggle="modal"
+        data-bs-target="#mi-modal" class="btn btn-primary">Editar <i class="fa-solid fa-pen-to-square"></i></button></td>
 
         <td>${resp[i].CONTACTO} </td>
 
@@ -57,6 +58,7 @@ function guardar() {
 }
 
 function fetchServicioCrear() {
+  accion = "crear";
   var contacto = document.getElementById("nom");
   var num = document.getElementById("num");
   var fData = new FormData();
@@ -91,6 +93,35 @@ function fetchServicioCrear() {
         console.error("Error al obtener el contenido:", error);
       });
   }
+}
+
+function fetchServicioModificar(idContacto, contacto, telefono) {
+  contacto = document.getElementById("nom");
+  num = document.getElementById("num");
+  var fData = new FormData();
+  fData.append("idContacto", idContacto);
+  fData.append("contacto", contacto);
+  fData.append("telefono", telefono);
+  fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaModificar", {
+    method: "POST",
+    body: fData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("No se pudo obtener el contenido del archivo remoto.");
+      }
+      return response.text();
+    })
+
+    .then((resp) => {
+      console.log(idContacto);
+      //sweetalert con resp
+      getListado();
+      console.log(resp);
+    })
+    .catch((error) => {
+      console.error("Error al obtener el contenido:", error);
+    });
 }
 
 function borrar(idContacto) {
