@@ -84,9 +84,8 @@ function fetchServicioCrear() {
     });
 }
 
-function borrar(ID_CONTACTO) {
-  let idContacto = ID_CONTACTO;
 
+function borrar(idContacto) {
   var fData = new FormData();
   fData.append("idContacto", idContacto);
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaBorrar", {
