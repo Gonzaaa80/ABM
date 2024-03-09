@@ -1,5 +1,8 @@
 var lista;
 var accion;
+var idContactoModificar;
+
+
 
 function getListado() {
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaListar")
@@ -46,8 +49,14 @@ function modificar(i) {
   accion = "modificar";
   resetearFormulario("formulario");
   // buscar con el indice el elemento de la lista que quiero editar
+  let objAModificar = lista[i]
+  idContactoModificar = objAModificar.ID_CONTACTO
+  document.getElementById("nom").value = objAModificar.NOMBRE
+  objAModificar.TELEFONO
   // completar el form con los datos del que estoy editando
+
 }
+
 
 function guardar() {
   if (accion == "crear") {
@@ -58,17 +67,19 @@ function guardar() {
 }
 
 function fetchServicioCrear() {
-  accion = "crear";
+  //accion = "crear";
   var contacto = document.getElementById("nom");
   var num = document.getElementById("num");
-  var fData = new FormData();
 
+  //if (!funcionValidarInputs(["idInput","otroId","asdfg"])) return
+  
   if (!num.checkValidity() || !contacto.checkValidity()) {
     document.getElementById("demonom").innerHTML = contacto.validationMessage;
     document.getElementById("demonum").innerHTML = num.validationMessage;
   } else {
     document.getElementById("demonom").innerHTML = "Input OK";
-
+    
+    var fData = new FormData();
     fData.append("telefono", num.value);
     fData.append("contacto", contacto.value);
 
@@ -95,9 +106,12 @@ function fetchServicioCrear() {
   }
 }
 
-function fetchServicioModificar(idContacto, contacto, telefono, i) {
+
+function fetchServicioModificar() {
+  var contacto = document.getElementById("nom");
+  var telefono = document.getElementById("num");
   var fData = new FormData();
-  fData.append("idContacto", idContacto);
+  fData.append("idContacto", idContactoModificar);
   fData.append("contacto", contacto);
   fData.append("telefono", telefono);
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaModificar", {
@@ -112,7 +126,7 @@ function fetchServicioModificar(idContacto, contacto, telefono, i) {
     })
 
     .then((resp) => {
-      console.log(idContacto);
+      //console.log(idContacto);
       //sweetalert con resp
       getListado();
       console.log(resp);
