@@ -95,9 +95,7 @@ function fetchServicioCrear() {
   }
 }
 
-function fetchServicioModificar(idContacto, contacto, telefono) {
-  contacto = document.getElementById("nom");
-  num = document.getElementById("num");
+function fetchServicioModificar(idContacto, contacto, telefono, i) {
   var fData = new FormData();
   fData.append("idContacto", idContacto);
   fData.append("contacto", contacto);
