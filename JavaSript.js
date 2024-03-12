@@ -2,8 +2,6 @@ var lista;
 var accion;
 var idContactoModificar;
 
-
-
 function getListado() {
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaListar")
     .then((response) => {
@@ -29,7 +27,7 @@ function getListado() {
       
       
       
-      <td><button onclick="borrar(${resp[i].ID_CONTACTO})" class="btn btn-danger">Borrar <i class="fa-solid fa-trash"></i></button></td>
+      <td><button onclick="delAlert(${resp[i].ID_CONTACTO})" class="btn btn-danger">Borrar <i class="fa-solid fa-trash"></i></button></td>
         </tr>
       `;
       }
@@ -43,20 +41,19 @@ function getListado() {
 function crear() {
   accion = "crear";
   resetearFormulario("formulario");
+ 
 }
 
 function modificar(i) {
   accion = "modificar";
   resetearFormulario("formulario");
   // buscar con el indice el elemento de la lista que quiero editar
-  let objAModificar = lista[i]
-  idContactoModificar = objAModificar.ID_CONTACTO
-  document.getElementById("nom").value = objAModificar.NOMBRE
-  objAModificar.TELEFONO
+  let objAModificar = lista[i];
+  idContactoModificar = objAModificar.ID_CONTACTO;
+  document.getElementById("nom").value = objAModificar.CONTACTO;
+  document.getElementById("num").value = objAModificar.TELEFONO;
   // completar el form con los datos del que estoy editando
-
 }
-
 
 function guardar() {
   if (accion == "crear") {
@@ -72,13 +69,13 @@ function fetchServicioCrear() {
   var num = document.getElementById("num");
 
   //if (!funcionValidarInputs(["idInput","otroId","asdfg"])) return
-  
+
   if (!num.checkValidity() || !contacto.checkValidity()) {
     document.getElementById("demonom").innerHTML = contacto.validationMessage;
     document.getElementById("demonum").innerHTML = num.validationMessage;
   } else {
     document.getElementById("demonom").innerHTML = "Input OK";
-    
+
     var fData = new FormData();
     fData.append("telefono", num.value);
     fData.append("contacto", contacto.value);
@@ -106,10 +103,9 @@ function fetchServicioCrear() {
   }
 }
 
-
 function fetchServicioModificar() {
-  var contacto = document.getElementById("nom");
-  var telefono = document.getElementById("num");
+  var contacto = document.getElementById("nom").value;
+  var telefono = document.getElementById("num").value;
   var fData = new FormData();
   fData.append("idContacto", idContactoModificar);
   fData.append("contacto", contacto);
@@ -126,7 +122,7 @@ function fetchServicioModificar() {
     })
 
     .then((resp) => {
-      //console.log(idContacto);
+      
       //sweetalert con resp
       getListado();
       console.log(resp);
@@ -152,7 +148,6 @@ function borrar(idContacto) {
 
     .then((resp) => {
       console.log("El ID es: " + idContacto);
-
       //sweetalert con resp
       getListado();
       console.log(resp);
@@ -163,3 +158,5 @@ function borrar(idContacto) {
 }
 
 getListado();
+
+toastr.info('Are you the 6 fingered man?')
