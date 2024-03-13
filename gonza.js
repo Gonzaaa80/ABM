@@ -43,15 +43,15 @@ function delAlert(idContacto) {
 
 
 function sucAlert() {
-  guardar()
-  if (guardar = true) {
+ 
+ guardar()
     Swal.fire({
       title: "Guardado!",
       text: "Se guardo exitosamente!",
       icon: "success"
     });
 
-  }
+  
 
 
 }
