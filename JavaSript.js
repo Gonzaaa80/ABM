@@ -3,6 +3,9 @@ var accion;
 var idContactoModificar;
 var valorc;
 
+const myModal = new bootstrap.Modal('#mi-modal')
+
+
 function getListado() {
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaListar")
     .then((response) => {
@@ -59,9 +62,11 @@ function modificar(i) {
 function guardar() {
   if (accion == "crear") {
     fetchServicioCrear();
+    answ()
 
   } else if (accion == "modificar") {
     fetchServicioModificar();
+    answ()
   }
 }
 
@@ -78,7 +83,7 @@ function fetchServicioCrear() {
     
   } else {
     valorc="verdadero"
-    
+    console.log(valorc)
 
     var fData = new FormData();
     fData.append("telefono", num.value);
@@ -112,20 +117,27 @@ function fetchServicioCrear() {
 
 function answ() {
   if (valorc == "falso"){
-    toastAlert("revisar", "problema con usuario o número")
+    toastAlert("revisar", "problema con Nombre o Número")
 }else {
-  sucAlert()
+    sucAlert()
+   myModal.hide()
   }
   }
 
 
 function fetchServicioModificar() {
-  var contacto = document.getElementById("nom").value;
-  var telefono = document.getElementById("num").value;
-  var fData = new FormData();
+  var contacto = document.getElementById("nom");
+  var telefono = document.getElementById("num");
+
+  if (!telefono.checkValidity() || !contacto.checkValidity()) {
+    valorc = "falso" 
+    console.log(valorc)
+  } else {
+    valorc="verdadero"
+    var fData = new FormData();
   fData.append("idContacto", idContactoModificar);
-  fData.append("contacto", contacto);
-  fData.append("telefono", telefono);
+  fData.append("contacto", contacto.value);
+  fData.append("telefono", telefono.value);
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaModificar", {
     method: "POST",
     body: fData,
@@ -146,6 +158,10 @@ function fetchServicioModificar() {
     .catch((error) => {
       console.error("Error al obtener el contenido:", error);
     });
+  }
+
+
+  
 }
 
 function borrar(idContacto) {

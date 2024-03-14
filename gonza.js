@@ -79,7 +79,7 @@ function delAlert(idContacto) {
 
 function sucAlert() {
  
-  guardar()
+ 
     Swal.fire({
       title: "Guardado!",
       text: "Se guardo exitosamente!",
