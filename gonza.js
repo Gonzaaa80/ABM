@@ -34,7 +34,9 @@ function toastSuccess(titulo,mensaje=''){
 function toastError(titulo,mensaje=''){
   toastr.error(titulo,mensaje)
 }
-
+function toastAlert(titulo, mensaje = '') {
+  toastr.warning(titulo,mensaje)
+ }
 
 
 function resetearFormulario(idForm) {
@@ -77,7 +79,7 @@ function delAlert(idContacto) {
 
 function sucAlert() {
  
- guardar()
+  guardar()
     Swal.fire({
       title: "Guardado!",
       text: "Se guardo exitosamente!",

@@ -1,6 +1,7 @@
 var lista;
 var accion;
 var idContactoModificar;
+var valorc;
 
 function getListado() {
   fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaListar")
@@ -58,23 +59,26 @@ function modificar(i) {
 function guardar() {
   if (accion == "crear") {
     fetchServicioCrear();
+
   } else if (accion == "modificar") {
     fetchServicioModificar();
   }
 }
 
 function fetchServicioCrear() {
-  //accion = "crear";
+  
   var contacto = document.getElementById("nom");
   var num = document.getElementById("num");
 
   //if (!funcionValidarInputs(["idInput","otroId","asdfg"])) return
 
   if (!num.checkValidity() || !contacto.checkValidity()) {
-    document.getElementById("demonom").innerHTML = contacto.validationMessage;
-    document.getElementById("demonum").innerHTML = num.validationMessage;
+    valorc="falso"
+    console.log(valorc)
+    
   } else {
-    document.getElementById("demonom").innerHTML = "Input OK";
+    valorc="verdadero"
+    
 
     var fData = new FormData();
     fData.append("telefono", num.value);
@@ -100,8 +104,20 @@ function fetchServicioCrear() {
       .catch((error) => {
         console.error("Error al obtener el contenido:", error);
       });
+  
   }
+  
 }
+
+
+function answ() {
+  if (valorc == "falso"){
+    toastAlert("revisar", "problema con usuario o número")
+}else {
+  sucAlert()
+  }
+  }
+
 
 function fetchServicioModificar() {
   var contacto = document.getElementById("nom").value;
@@ -157,6 +173,7 @@ function borrar(idContacto) {
     });
 }
 
+
+
 getListado();
 
-toastr.info('Are you the 6 fingered man?')
