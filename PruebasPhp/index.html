@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script >
+        function funcionMandar(){
+           var nom =document.getElementById("nombre")
+           var ape =document.getElementById("apellido")
+
+    var fData = new FormData();
+    fData.append("nombre", nom.value);
+    fData.append("apellido", ape.value);
+
+     fetch('https://bomberosalerta.com.ar/gonza/PruebasPhp/servicio1.php', {
+      method: "POST",
+      body: fData,
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error("No se pudo obtener el contenido del archivo remoto.");
+      }
+      return response.text();
+    }).then((resp)=>{
+        console.log(resp)
+        
+        document.getElementById("span").innerHTML=resp  
+    }).catch((error) => {
+      console.error("Error al obtener el contenido:", error);
+    });  
+    nom.value = ""
+    ape.value = ""
+        }
+       
+    </script>
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Nombre</label>
+    <input type="text" id="nombre">
+    <label for="">apellido</label>
+    <input type="text" id="apellido">
+    <button onclick="funcionMandar()"></button>
+   
+    <span id="span"></span>
+</body>
+</html>
