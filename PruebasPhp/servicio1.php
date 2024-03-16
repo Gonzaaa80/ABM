@@ -6,8 +6,8 @@
 header('Access-Control-Allow-Origin: *');
 
 
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
+$nombre = $_REQUEST['nombre'];
+$apellido = $_REQUEST['apellido'];
 echo "$nombre ";
 echo "$apellido";
 ?>
