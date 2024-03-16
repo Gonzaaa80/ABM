@@ -7,7 +7,7 @@ const myModal = new bootstrap.Modal('#mi-modal')
 
 
 function getListado() {
-  fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaListar")
+  fetch("https://bomberosalerta.com.ar/gonza/Tarea5php/servicioAgendaListar.php")
     .then((response) => {
       if (!response.ok) {
         throw new Error("No se pudo obtener el contenido del archivo remoto.");
@@ -89,7 +89,7 @@ function fetchServicioCrear() {
     fData.append("telefono", num.value);
     fData.append("contacto", contacto.value);
 
-    fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaCrear", {
+    fetch("https://bomberosalerta.com.ar/gonza/Tarea5php/servicioAgendaCrear.php", {
       method: "POST",
       body: fData,
     })
@@ -138,7 +138,7 @@ function fetchServicioModificar() {
   fData.append("idContacto", idContactoModificar);
   fData.append("contacto", contacto.value);
   fData.append("telefono", telefono.value);
-  fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaModificar", {
+  fetch("https://bomberosalerta.com.ar/gonza/Tarea5php/servicioAgendaModificar.php", {
     method: "POST",
     body: fData,
   })
@@ -167,7 +167,7 @@ function fetchServicioModificar() {
 function borrar(idContacto) {
   var fData = new FormData();
   fData.append("idContacto", idContacto);
-  fetch("https://bomberosalerta.com.ar/cursoweb/servicioAgendaBorrar", {
+  fetch("https://bomberosalerta.com.ar/gonza/Tarea5php/servicioAgendaBorrar.php", {
     method: "POST",
     body: fData,
   })
