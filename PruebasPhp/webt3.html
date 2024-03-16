@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <script> 
+
+        function getPorUrl(){
+            fetch('https://bomberosalerta.com.ar/gonza/PruebasPhp/servicio1.php?nombre=matias&apellido=gimenez', {
+               method: "GET",
+            }).then((response)=>{
+                if (!response.ok) {
+                  throw new Error("No se pudo obtener el contenido del archivo remoto.");
+                }
+                  return response.text();
+            }).then((resp)=>{
+                console.log(resp)
+                document.getElementById("span").innerHTML=resp  
+
+
+            }).catch((error) => {
+                console.error("Error al obtener el contenido:", error);
+              });  
+
+
+
+        }
+        getPorUrl()
+
+
+
+     </script>
+</head>
+<body>
+    <span id="span">
+    </span>
+
+
+
+</body>
+</html>
