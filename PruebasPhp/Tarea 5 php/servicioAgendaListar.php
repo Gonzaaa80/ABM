@@ -17,8 +17,8 @@ if($result){
 echo json_encode($lista);
 
 
-}catch(Error){
-    echo "error";
+} catch (Throwable $t) {
+    echo "Error al crear:".$t->getTraceAsString() ;
 }
 
 

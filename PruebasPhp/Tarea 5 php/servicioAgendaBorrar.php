@@ -14,11 +14,9 @@ try {
 
     $db->query("DELETE FROM ABM WHERE ID_CONTACTO = '$idContacto'" );
     echo "Borrado OK";
-} catch (Error) {
-    echo "Error al crear";
+} catch (Throwable $t) {
+    echo "Error al crear:".$t->getTraceAsString() ;
 }
-
-
 
 
 ?>

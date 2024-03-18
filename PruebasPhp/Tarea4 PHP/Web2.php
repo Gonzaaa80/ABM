@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
     <h1>Texto Guardado en Sesión</h1>
-    <span><? echo $_SESSION['texto'];?></span>
+    <span><?php echo $_SESSION['texto'];?></span>
     <?php
         echo "<span>" . $_SESSION['texto'] . "</span>";
     ?>

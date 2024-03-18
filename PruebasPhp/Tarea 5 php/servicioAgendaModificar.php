@@ -17,11 +17,9 @@ try {
 
     $db->query("UPDATE ABM SET CONTACTO ='$contacto', TELEFONO ='$telefono'  WHERE ID_CONTACTO = '$idContacto'" );
     echo "Modificado OK";
-} catch (Error) {
-    echo "Error al Modificar";
+} catch (Throwable $t) {
+    echo "Error al crear:".$t->getTraceAsString() ;
 }
-
-
 
 
 ?>
