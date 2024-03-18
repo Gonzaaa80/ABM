@@ -14,8 +14,8 @@ try {
 
     $db->query("INSERT INTO ABM(CONTACTO, TELEFONO) VALUES ('$contacto', '$telefono')" );
     echo "creado OK";
-} catch (Error) {
-    echo "Error al crear";
+} catch (Throwable $t) {
+    echo "Error al crear:".$t->getTraceAsString() ;
 }
 
 
