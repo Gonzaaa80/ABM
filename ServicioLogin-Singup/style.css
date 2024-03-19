@@ -38,4 +38,8 @@ form label {
   float: right;
 
   transform: translate(-10px, -26px);
+} 
+
+.cont-sub{
+  text-align: center;
 }
