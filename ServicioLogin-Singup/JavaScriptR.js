@@ -1,4 +1,4 @@
-var pass = document.getElementById("pass");
+let pass = document.getElementById("pass");
 var icon = document.querySelector(".bx");
 
 icon.addEventListener("click", (e) => {
@@ -13,10 +13,10 @@ icon.addEventListener("click", (e) => {
   }
 });
 
-function ServicioRegistrar() {
+function servicioRegistrar() {
   var nom = document.getElementById("nom");
   var ema = document.getElementById("ema");
-  pass = document.getElementById("pass");
+   var pass = document.getElementById("pass");
   var tel = document.getElementById("tel");
 
   if (!nom.checkValidity() || !ema.checkValidity() || !pass.checkValidity()) {

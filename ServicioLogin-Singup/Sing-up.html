@@ -14,7 +14,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <script src="JavaScript-LR.js" defer></script>
+    <script src="JavaScriptR.js" defer></script>
     <title>ABM</title>
   </head>
   <body>
@@ -23,64 +23,35 @@
       <div class="row">
         <div class="col-sm-12 col-12">
           <form>
-            <label for="">Nombre</label>
+            <label for="">Usuario</label>
             <br />
             <input
               class="form-control"
               type="text"
               id="nom"
-              placeholder="Introduce su nombre"
+              placeholder="Introduce su usuario"
               required
             />
             <br />
             <label for="">Email</label>
             <br />
-            <input
-              type="email"
-              class="form-control"
-              id="ema"
-              placeholder="Introduce su Email"
-              required
-            />
+            <input type="email" class="form-control" id="ema" placeholder="Introduce su Email" required/>
             <br />
             <div class="cont-pass">
               <label for="">Password</label>
               <br />
-              <input
-                type="password"
-                class="form-control"
-                id="pass"
-                placeholder="Introduce su contraseña"
-                required
-              />
+              <input type="password" class="form-control" id="pass" placeholder="Introduce su contraseña" required />
               <i class="bx bxs-show"></i>
             </div>
             <br />
             <label for="">Telefono</label>
             <br />
-            <input
-              type="text"
-              id="tel"
-              class="form-control"
-              placeholder="Introduce su Numero"
-              minlength="10"
-              maxlength="10"
-              pattern="[0-9]*"
-            />
+            <input type="text"  id="tel" class="form-control" placeholder="Introduce su Numero" minlength="10" maxlength="10" pattern="[0-9]*"/>
             <br />
-
-            <button
-              type="button"
-              class="btn btn-primary"
-              onclick="ServicioRegistrar()"
-            >
-              registrarse
-            </button>
+            <button type="button" class="btn btn-primary" onclick="servicioRegistrar()" >registrarse</button>
             <br />
             <button type="submit" class="btn btn-secondary">
-              <a
-                href="https://bomberosalerta.com.ar/gonza/ServicioLogin-Singup/Log-in.php"
-                >Iniciar sesion</a
+              <a href="https://bomberosalerta.com.ar/gonza/ServicioLogin-Singup/Log-in.php">Iniciar sesion</a
               >
             </button>
           </form>
