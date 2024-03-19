@@ -29,7 +29,13 @@ function ServicioLogin() {
       })
       .then((resp) => {
           console.log(resp);
-          location.href ="index.html"
+          
+          if(resp == 'OK'){
+            //location.href ="index.html"
+            window.location = "index"
+          }else{
+            toastError(resp)
+          }
       })
       .catch((error) => {
         console.error("Error al obtener el contenido:", error);
