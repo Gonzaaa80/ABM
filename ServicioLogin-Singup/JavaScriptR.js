@@ -44,13 +44,20 @@ function servicioRegistrar() {
       })
       .then((resp) => {
         console.log(resp);
+        if (resp == "Registrado OK") {
+          nom.value = "";
+          ema.value = "";
+          pass.value = "";
+          tel.value = "";
+          location.href ="Log-in.html"
+        }
+    
       })
       .catch((error) => {
         console.error("Error al obtener el contenido:", error);
       });
-    nom.value = "";
-    ema.value = "";
-    pass.value = "";
-    tel.value = "";
+    
   }
 }
+
+

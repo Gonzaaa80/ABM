@@ -2,13 +2,15 @@
 function ServicioLogin() {
     var nom = document.getElementById("nom")
     var pass = document.getElementById("pass")
-
+    var ema = document.querySelector(".ema")
 
     if (!nom.checkValidity() || !pass.checkValidity()) {
         console.log("error en algun campo");
       } else {
     var fData = new FormData();
+    
     fData.append("nombre", nom.value);
+    fData.append("email", ema.value);
     fData.append("contraseña", pass.value);
     fetch(
       "https://bomberosalerta.com.ar/gonza/ServicioLogin-Singup/ServicioLogear.php",
@@ -26,7 +28,8 @@ function ServicioLogin() {
         return response.text();
       })
       .then((resp) => {
-        console.log(resp);
+          console.log(resp);
+          location.href ="index.html"
       })
       .catch((error) => {
         console.error("Error al obtener el contenido:", error);

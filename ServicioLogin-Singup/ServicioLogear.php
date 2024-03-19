@@ -9,9 +9,10 @@ include('conexion.php');
 try{
 if(isset($_POST['nombre']) && isset($_POST['contraseña'])){
 $nombre = $_REQUEST["nombre"];
+$email = $_REQUEST["email"];
 $contraseña = $_REQUEST["contraseña"];
 
-$consultaSql = "SELECT * FROM REGISTRO WHERE NOMBRE = '$nombre' AND CONTRASEÑA = '$contraseña'";
+$consultaSql = "SELECT * FROM REGISTRO WHERE NOMBRE = '$nombre' OR EMAIL = '$email' AND CONTRASEÑA = '$contraseña'";
 
 $result = $conexion-> query($consultaSql);
 
