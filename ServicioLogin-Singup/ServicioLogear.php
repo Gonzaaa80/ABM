@@ -1,5 +1,4 @@
 <?php
-session_start();
 header('Access-Control-Allow-Origin: *');
 include('conexion.php');
 
@@ -14,15 +13,14 @@ try {
         $result = $conexion->query($consultaSql);
 
         if ($result->num_rows > 0) {
-        
+            
             $fila = $result->fetch_assoc();
             $id_usuario = $fila['ID_USUARIO'];
-
             
+            session_start();  
             $_SESSION['ID_USUARIO'] = $id_usuario;
-            
+    
             echo "OK";
-            
            
         } else {
             echo "No existe usuario";
