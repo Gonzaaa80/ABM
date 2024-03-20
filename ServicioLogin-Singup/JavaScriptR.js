@@ -49,7 +49,7 @@ function servicioRegistrar() {
           ema.value = "";
           pass.value = "";
           tel.value = "";
-          location.href ="Log-in.html"
+          window.location = "Log-in"
         }
     
       })

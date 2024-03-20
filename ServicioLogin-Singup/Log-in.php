@@ -27,8 +27,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
    
     <script src="gonza.js?1" defer></script>
-    <script src="JavaScriptR.js?1" defer></script>
-    <script src="JavaScriptL.js?1" defer></script>
+    <script src="JavaScriptR.js?3" defer></script>
+    <script src="JavaScriptL.js?3" defer></script>
    
     <title>ABM</title>
   </head>
@@ -55,7 +55,7 @@
             <button type="button" class="btn btn-primary" onclick="ServicioLogin()">Ingresar</button>
             <br />
             <button type="submit" class="btn btn-secondary">
-              <a href="https://bomberosalerta.com.ar/gonza/ServicioLogin-Singup/Sing-up.html">Registrarse</a>
+              <a href="https://bomberosalerta.com.ar/gonza/ServicioLogin-Singup/Sing-up.php">Registrarse</a>
             </button>
           </div>
         </div>

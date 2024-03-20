@@ -1,3 +1,15 @@
+<?php
+include('ServicioLogear');
+session_start();
+if(isset($_SESSION['ID_USUARIO']) && !empty($_SESSION['ID_USUARIO'])) {
+  echo"usuario valido";
+} else {
+  header("location:Log-in.php");
+}
+?>
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -30,9 +30,10 @@ function ServicioLogin() {
       .then((resp) => {
           console.log(resp);
           
-          if(resp == 'OK'){
-            //location.href ="index.html"
-            window.location = "index"
+          if (resp == 'OK') {
+              
+              window.location = "Agenda"
+             
           }else{
             toastError(resp)
           }

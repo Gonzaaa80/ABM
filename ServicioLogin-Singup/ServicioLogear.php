@@ -1,6 +1,6 @@
 <?php
+session_start();
 header('Access-Control-Allow-Origin: *');
-
 include('conexion.php');
 
 try {
@@ -9,12 +9,21 @@ try {
         $email = $_REQUEST["email"];
         $contraseña = $_REQUEST["contraseña"];
 
-        $consultaSql = "SELECT * FROM REGISTRO WHERE NOMBRE = '$nombre' OR EMAIL = '$email' AND CONTRASEÑA = '$contraseña'";
-
+        $consultaSql = "SELECT ID_USUARIO, NOMBRE, CONTRASEÑA FROM REGISTRO WHERE NOMBRE = '$nombre' OR EMAIL = '$email' AND CONTRASEÑA = '$contraseña'";
+      
         $result = $conexion->query($consultaSql);
 
         if ($result->num_rows > 0) {
+        
+            $fila = $result->fetch_assoc();
+            $id_usuario = $fila['ID_USUARIO'];
+
+            
+            $_SESSION['ID_USUARIO'] = $id_usuario;
+            
             echo "OK";
+            
+           
         } else {
             echo "No existe usuario";
         }
