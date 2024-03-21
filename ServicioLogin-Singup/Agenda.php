@@ -57,6 +57,7 @@ if(empty($_SESSION['ID_USUARIO'])) {
               data-bs-target="#mi-modal">
               Nuevo Contacto
             </button>
+            <button type="button" class="btn btn-danger"><a href="cerrarsesion.php">Cerrar sesion</a></button>
           </div>
 
           <table style="border: 1px solid" id="tabla" class="table table-primary table-striped">
