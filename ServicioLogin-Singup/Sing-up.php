@@ -16,7 +16,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <script src="JavaScriptR.js" defer></script>
+    <script src="JavaScriptR.js?43" defer></script>
     <title>ABM</title>
   </head>
   <body>

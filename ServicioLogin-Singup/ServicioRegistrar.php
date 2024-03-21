@@ -4,7 +4,7 @@ include('conexion.php');
 
 $nombre = $_REQUEST["nombre"];
 $email = $_REQUEST["email"];
-$contraseña = $_REQUEST["contraseña"];
+$contraseña = md5($_REQUEST["contraseña"]);
 $telefono = $_REQUEST["telefono"];
 
 try {

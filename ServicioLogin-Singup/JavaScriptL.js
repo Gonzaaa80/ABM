@@ -26,6 +26,7 @@ function ServicioLogin() {
       console.log(resp);
       if (resp == 'OK') {
         window.location = "Agenda"
+
       }else{
         toastError(resp)
       }

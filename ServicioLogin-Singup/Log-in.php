@@ -27,8 +27,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
    
     <script src="gonza.js?1" defer></script>
-    <script src="JavaScriptR.js?5" defer></script>
-    <script src="JavaScriptL.js?5" defer></script>
+    <script src="JavaScriptR.js?76" defer></script>
+    <script src="JavaScriptL.js?34" defer></script>
    
     <title>ABM</title>
   </head>
