@@ -24,7 +24,7 @@
   margin-top: 2%;
 }
 .btn {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 a {
   text-decoration: none;
@@ -58,15 +58,15 @@ a {
   font-size: 13vh;
 }
 .description p {
-  margin-top: 5%;
+  margin-top: 3%;
   color: #4d5251;
   font-size: 20px;
   text-align: center;
 
   max-width: 60%;
 }
-.cliente {
-  height: 111vh;
+.secciones {
+  height: 120vh;
   display: inline-block;
   width: 100%;
 }
@@ -89,18 +89,89 @@ a {
   margin-top: 85px;
   font-size: 13vh;
 }
-#wp {
-  color: green;
-}
+
 
 .d-block {
   margin-top: 100px;
   max-width: 450px;
+  
+
+
 }
 
+.btn-primary{
+  font-size: 20px;
+  border: #5ce6da;
+  background-color: #5ce6da;
+}
+.btn-secondary{
+  font-size: 20px;
+
+}
+
+
+footer{
+  margin-top: 10%;
+}
 html {
   scroll-behavior: smooth;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* gotop */
 .gotop-cont {
@@ -115,7 +186,7 @@ html {
 .gotop {
   width: 0rem;
   height: 0rem;
-  background-color: black;
+  background-color: #5ce6da;
   border-radius: 50%;
   cursor: pointer;
   top: 50%;
